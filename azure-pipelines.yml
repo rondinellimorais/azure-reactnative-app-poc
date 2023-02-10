@@ -36,7 +36,7 @@ steps:
   condition: and(succeeded(), eq(variables['platformName'], 'android'))
   inputs:
     script: |
-      bundle exec fastlane android build --env sandbox version_code:$(Build.BuildId)
+      fastlane android build --env sandbox version_code:$(Build.BuildId)
 
 # Android tasks
 # =======================
@@ -45,4 +45,4 @@ steps:
   condition: and(succeeded(), eq(variables['platformName'], 'ios'))
   inputs:
     script: |
-      bundle exec fastlane ios build
+      fastlane ios build
