@@ -5,39 +5,37 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.000494">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.001445">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000312">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000332">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to android package_json_version lane" time="0.000452">
+      <testcase classname="fastlane.lanes" name="2: Switch to android package_json_version lane" time="0.000265">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: android_set_version_name" time="0.010368">
+      <testcase classname="fastlane.lanes" name="3: android_set_version_name" time="0.005941">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: android_set_version_code" time="0.003429">
+      <testcase classname="fastlane.lanes" name="4: android_set_version_code" time="0.003522">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: Switch to android build_sandbox lane" time="0.000284">
+      <testcase classname="fastlane.lanes" name="5: Switch to android build_sandbox lane" time="0.000263">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: app:assembleRelease" time="106.378362">
-        
-          <failure message="/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:229:in `chdir&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;src/android.rb:38:in `block (2 levels) in parsing_binding&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/lane.rb:33:in `call&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:204:in `try_switch_to_lane&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:146:in `trigger_action_by_name&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;src/android.rb:27:in `block (2 levels) in parsing_binding&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/lane.rb:33:in `call&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:45:in `chdir&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/runner.rb:45:in `execute&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in `call&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in `run&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/commands_generator.rb:354:in `run&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/commands_generator.rb:43:in `start&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/fastlane/lib/fastlane/cli_tools_distributor.rb:123:in `take_off&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/gems/fastlane-2.209.0/bin/fastlane:23:in `&lt;top (required)&gt;&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/bin/fastlane:25:in `load&apos;&#10;/usr/local/Cellar/fastlane/2.209.0/libexec/bin/fastlane:25:in `&lt;main&gt;&apos;&#10;&#10;Exit status of command &apos;/Users/rondinelli.morais/Desktop/projetos/azure-reactnative-app-poc/android/gradlew app:assembleRelease -p android/&apos; was 1 instead of 0.&#10;Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details&#10;&gt; Task :app:generatePackageList&#10;&gt; Task :app:preBuild&#10;&gt; Task :app:preReleaseBuild&#10;&gt; Task :app:compileReleaseAidl NO-SOURCE&#10;&gt; Task :app:compileReleaseRenderscript NO-SOURCE&#10;&gt; Task :app:generateReleaseBuildConfig UP-TO-DATE&#10;&gt; Task :app:javaPreCompileRelease UP-TO-DATE&#10;&gt; Task :app:writeReleaseApplicationId UP-TO-DATE&#10;&gt; Task :app:analyticsRecordingRelease&#10;&gt; Task :app:checkReleaseAarMetadata&#10;&gt; Task :app:bundleReleaseJsAndAssets&#10;warning: the transform cache was reset.&#10;                 Welcome to React Native!&#10;                Learn once, write anywhere&#10;&#10;&#10;info Writing bundle output to:, /Users/rondinelli.morais/Desktop/projetos/azure-reactnative-app-poc/android/app/build/generated/assets/react/release/index.android.bundle&#10;info Writing sourcemap output to:, /Users/rondinelli.morais/Desktop/projetos/azure-reactnative-app-poc/android/app/build/generated/sourcemaps/react/release/index.android.bundle.map&#10;info Done writing bundle output&#10;info Done writing sourcemap output&#10;info Copying 2 asset files&#10;info Done copying assets&#10;&#10;&gt; Task :app:mergeReleaseShaders&#10;&gt; Task :app:compileReleaseShaders NO-SOURCE&#10;&gt; Task :app:generateReleaseAssets UP-TO-DATE&#10;&gt; Task :app:mergeReleaseAssets&#10;&gt; Task :app:copyReleaseBundledJs&#10;&gt; Task :app:generateReleaseResValues&#10;&gt; Task :app:generateReleaseResources&#10;&gt; Task :app:createReleaseCompatibleScreenManifests&#10;&gt; Task :app:extractDeepLinksRelease&#10;&#10;&gt; Task :app:processReleaseMainManifest FAILED&#10;/Users/rondinelli.morais/Desktop/projetos/azure-reactnative-app-poc/android/app/src/main/AndroidManifest.xml Error:&#10;	Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.&#10;&#10;See http://g.co/androidstudio/manifest-merger for more information about the manifest merger.&#10;&#10;&#10;&gt; Task :app:mergeReleaseResources&#10;&#10;FAILURE: Build failed with an exception.&#10;&#10;* What went wrong:&#10;Execution failed for task &apos;:app:processReleaseMainManifest&apos;.&#10;&gt; Manifest merger failed : Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.&#10;&#10;* Try:&#10;Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.&#10;&#10;* Get more help at https://help.gradle.org&#10;&#10;BUILD FAILED in 1m 45s&#10;15 actionable tasks: 12 executed, 3 up-to-date&#10;" />
+      <testcase classname="fastlane.lanes" name="6: app:assembleRelease" time="100.342934">
         
       </testcase>
     
