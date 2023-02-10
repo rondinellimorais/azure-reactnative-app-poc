@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- release/*-azure
+- main
 
 strategy:
   matrix:
@@ -19,11 +19,15 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSource: 'fromFile'
-    versionFilePath: .nvmrc
-  displayName: 'Install Node.js'
+- script: |
+    fastlane --version
+  displayName: 'fastlane'
+
+# - task: NodeTool@0
+#   inputs:
+#     versionSource: 'fromFile'
+#     versionFilePath: .nvmrc
+#   displayName: 'Install Node.js'
 
 - script: |
     echo "Rondinelli Morais ---> $(platformName)"
