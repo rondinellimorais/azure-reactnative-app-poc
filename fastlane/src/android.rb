@@ -14,7 +14,7 @@ platform :android do
   end
 
   lane :build do | options |
-    setup()
+    # setup()
     android_set_version_name(
       version_name: package_json_version,
       gradle_file: "./android/app/build.gradle"
