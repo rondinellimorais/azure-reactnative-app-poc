@@ -25,6 +25,8 @@ steps:
     versionFilePath: .nvmrc
   displayName: 'Install Node.js'
 
+- script: ruby --version
+
 - script: |
     bundle install
   displayName: Install fastlane
