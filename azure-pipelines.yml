@@ -26,6 +26,11 @@ steps:
   displayName: 'Install Node.js'
 
 - task: CmdLine@2
+  displayName: yarn/npm install
+  inputs:
+    script: yarn
+
+- task: CmdLine@2
   displayName: Install fastlane using Gemfile
   inputs:
     script: |
@@ -48,4 +53,4 @@ steps:
   condition: and(succeeded(), eq(variables['platformName'], 'ios'))
   inputs:
     script: |
-      fastlane ios build
+      bundle exec fastlane ios build --env sandbox
