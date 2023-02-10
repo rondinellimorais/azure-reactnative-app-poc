@@ -11,9 +11,9 @@ strategy:
     Android:
       imageName: 'ubuntu-latest'
       platformName: android
-    iOS:
-      imageName: 'macOS-latest'
-      platformName: ios
+    # iOS:
+    #   imageName: 'macOS-latest'
+    #   platformName: ios
 
 pool:
   vmImage: $(imageName)
