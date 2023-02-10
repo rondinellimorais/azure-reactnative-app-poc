@@ -9,7 +9,7 @@ trigger:
 strategy:
   matrix:
     Android:
-      imageName: 'ubuntu-latest'
+      imageName: 'macOS-latest'
       platformName: android
     # iOS:
     #   imageName: 'macOS-latest'
