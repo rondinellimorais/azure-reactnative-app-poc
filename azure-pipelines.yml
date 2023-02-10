@@ -46,6 +46,18 @@ steps:
     script: |
       bundle exec fastlane android build --env sandbox version_code:$(Build.BuildId)
 
+- task: CopyFiles@2
+  displayName: Save compiled binary
+  inputs:
+    contents: android/**/*.apk
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
+
+- publish: $(Build.ArtifactStagingDirectory)
+  artifact: build_$(Build.BuildId)
+  displayName: Publish compiled binary
+  
 # Android tasks
 # =======================
 - task: CmdLine@2
