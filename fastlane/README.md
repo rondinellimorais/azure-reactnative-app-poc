@@ -58,6 +58,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### android apply_appdome
+
+```sh
+[bundle exec] fastlane android apply_appdome
+```
+
+
+
 ### android deploy
 
 ```sh

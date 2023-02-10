@@ -5,47 +5,37 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.000391">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.000469">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000264">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00025">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to android setup lane" time="0.000703">
+      <testcase classname="fastlane.lanes" name="2: Switch to android package_json_version lane" time="0.000325">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: echo &quot;yarn reset&quot;;         yarn setup sandbox;         yarn environment sandbox;" time="0.805716">
+      <testcase classname="fastlane.lanes" name="3: android_set_version_name" time="0.004898">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: Switch to android package_json_version lane" time="0.000456">
+      <testcase classname="fastlane.lanes" name="4: android_set_version_code" time="0.003698">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: android_set_version_name" time="0.010171">
+      <testcase classname="fastlane.lanes" name="5: Switch to android build_sandbox lane" time="0.000246">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: android_set_version_code" time="0.004544">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: Switch to android build_sandbox lane" time="0.000251">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: app:assembleSandboxRelease" time="1624.864917">
+      <testcase classname="fastlane.lanes" name="6: app:assembleRelease" time="118.663262">
         
       </testcase>
     
