@@ -35,13 +35,12 @@ platform :android do
   # ======= PRIVATE
   # DO NOT CALL THESE FUNCTIONS DIRECTLY
   lane :build_sandbox do | options |
-    # android/app/build/outputs/apk/sandbox/release/app-sandbox-release.apk
-    gradle(task: "app:assembleSandboxRelease", project_dir: "android/")
+    gradle(task: "app:assembleRelease", project_dir: "android/")
   end
 
   lane :build_production do | options |
-    gradle(task: "app:assembleProductionRelease", project_dir: "android/")
-    gradle(task: "app:bundleProductionRelease", project_dir: "android/")
+    # gradle(task: "app:assembleProductionRelease", project_dir: "android/")
+    # gradle(task: "app:bundleProductionRelease", project_dir: "android/")
   end
 
   lane :apply_appdome do | options |
