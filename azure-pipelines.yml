@@ -28,6 +28,7 @@ steps:
 - script: ruby --version
 
 - script: |
+    sudo gem install bundler
     bundle install
   displayName: Install fastlane
 
