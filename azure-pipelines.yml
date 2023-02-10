@@ -25,13 +25,20 @@ steps:
     versionFilePath: .nvmrc
   displayName: 'Install Node.js'
 
+# Android tasks
+# =======================
 - task: CmdLine@2
-  displayName: Build
+  displayName: Build Android
   condition: and(succeeded(), eq(variables['platformName'], 'android'))
   inputs:
     script: |
-      fastlane android build --env sandbox version_code:$(Build.BuildId)
+      bundle exec fastlane android build --env sandbox version_code:$(Build.BuildId)
 
-- script: |
-    echo "Rondinelli Morais ---> $(platformName)"
-  displayName: 'Install dependencies'
+# Android tasks
+# =======================
+- task: CmdLine@2
+  displayName: Build iOS
+  condition: and(succeeded(), eq(variables['platformName'], 'ios'))
+  inputs:
+    script: |
+      bundle exec fastlane ios build
