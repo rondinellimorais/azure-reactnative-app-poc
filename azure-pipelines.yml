@@ -26,7 +26,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    sudo gem install fastlane
+    bundle install
   displayName: Install fastlane
 
 # Android tasks
@@ -36,8 +36,7 @@ steps:
   condition: and(succeeded(), eq(variables['platformName'], 'android'))
   inputs:
     script: |
-      fastlane actions
-      fastlane android build --env sandbox version_code:$(Build.BuildId)
+      bundle exec fastlane android build --env sandbox version_code:$(Build.BuildId)
 
 # Android tasks
 # =======================
