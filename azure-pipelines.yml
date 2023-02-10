@@ -25,9 +25,9 @@ steps:
     versionFilePath: .nvmrc
   displayName: 'Install Node.js'
 
-- script: |
-    gem install bundler   
-  displayName: 'Ruby bundle setup'
+# - script: |
+#     gem install bundler   
+#   displayName: 'Ruby bundle setup'
 
 # Android tasks
 # =======================
