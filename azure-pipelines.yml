@@ -27,7 +27,7 @@ steps:
 
 - task: CmdLine@2
   displayName: Build
-  condition: and(succeeded(), eq($(platformName), 'android'))
+  condition: and(succeeded(), eq(variables['platformName'], 'android'))
   inputs:
     script: |
       fastlane android build --env sandbox version_code:$(Build.BuildId)
