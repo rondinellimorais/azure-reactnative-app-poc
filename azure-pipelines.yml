@@ -25,6 +25,10 @@ steps:
     versionFilePath: .nvmrc
   displayName: 'Install Node.js'
 
+- script: |
+    sudo gem install fastlane
+  displayName: Install fastlane
+
 # Android tasks
 # =======================
 - task: CmdLine@2
