@@ -9,7 +9,7 @@ trigger:
 strategy:
   matrix:
     Android:
-      imageName: 'macOS-latest'
+      imageName: 'ubuntu-latest'
       platformName: android
     # iOS:
     #   imageName: 'macOS-latest'
@@ -25,10 +25,6 @@ steps:
     versionFilePath: .nvmrc
   displayName: 'Install Node.js'
 
-- script: |
-    gem install bundler   
-  displayName: 'Ruby bundle setup'
-
 # Android tasks
 # =======================
 - task: CmdLine@2
@@ -36,6 +32,7 @@ steps:
   condition: and(succeeded(), eq(variables['platformName'], 'android'))
   inputs:
     script: |
+      fastlane actions
       fastlane android build --env sandbox version_code:$(Build.BuildId)
 
 # Android tasks
