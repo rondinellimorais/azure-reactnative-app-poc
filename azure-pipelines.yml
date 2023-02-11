@@ -4,90 +4,21 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main # disposable/sandbox
-- dev # disposable/production
+  - main
 
-strategy:
-  matrix:
-    Android:
-      imageName: 'ubuntu-latest'
-      platformName: android
-    # iOS:
-    #   imageName: 'macOS-latest'
-    #   platformName: ios
+stages:
+  - stage: Android
+    jobs:
+      - job: Build
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+        - script: echo "Olá Android!!!"
 
-variables:
-- name: environment
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
-    value: production
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
-    value: sandbox
-- name: template
-  ${{ if contains(variables['Agent.JobName'], 'android') }}:
-    value: rond
-
-pool:
-  vmImage: $(imageName)
-
-steps:
-- template: ${{ variables.template }}.yml
-  parameters:
-    environment: ${{ variables.environment }}
-
-# - template: android.yml
-#   parameters:
-#     environment: ${{ variables.environment }}
-
-# - template: ios.yml
-#   parameters:
-#     environment: ${{ variables.environment }}
-
-# - ${{if eq(variables['test'], 'android') }}:
-#   - template: android.yml
-#     parameters:
-#       environment: ${{ variables.environment }}
-
-# - ${{ if eq($(platformName), 'ios') }}:
-#   - template: ios.yml
-#     parameters:
-#       environment: ${{ variables.environment }}
-
-# - task: NodeTool@0
-#   inputs:
-#     versionSource: 'fromFile'
-#     versionFilePath: .nvmrc
-#   displayName: 'Install Node.js'
-
-# - task: CmdLine@2
-#   displayName: yarn/npm install
-#   inputs:
-#     script: yarn
-
-# - task: CmdLine@2
-#   displayName: Install fastlane using Gemfile
-#   inputs:
-#     script: |
-#       sudo gem install bundler
-#       sudo bundle install
-
-# # Android tasks
-# # =======================
-# - task: CmdLine@2
-#   displayName: Build Android
-#   condition: and(succeeded(), eq(variables['platformName'], 'android'))
-#   inputs:
-#     script: |
-#       bundle exec fastlane android build version_code:$(Build.BuildId)
-
-# - task: CopyFiles@2
-#   displayName: Save compiled binary
-#   inputs:
-#     contents: android/**/*.apk
-#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-#     CleanTargetFolder: true
-#     OverWrite: true
-
-# - publish: $(Build.ArtifactStagingDirectory)
-#   artifact: $(Build.BuildId)
-#   displayName: Publish compiled binary
-  
+  - stage: iOS
+    jobs:
+      - job: Build
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+        - script: echo "Olá iOS!!!"
