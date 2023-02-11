@@ -27,7 +27,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- template: ${{ variables.environment }}
+- template: ${{ variables.environment }}.yml
   parameters:
     environment: ${{ variables.environment }}
 
