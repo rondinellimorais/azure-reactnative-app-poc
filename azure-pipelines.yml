@@ -53,11 +53,4 @@ steps:
   parameters:
     environment: ${{ variables.environment }}
 
-- task: CopyFiles@2
-  displayName: Save compiled binary
-  inputs:
-    contents: android/**/*.apk
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    CleanTargetFolder: true
-    OverWrite: true
   

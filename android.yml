@@ -7,15 +7,22 @@ parameters:
 - name: environment
   type: string
 
-variables:
-- name: buildAndroid
-  value: $[contains(variables['Agent.JobName'], 'Android')]
+# variables:
+# - name: buildAndroid
+#   value: $[contains(variables['Agent.JobName'], 'Android')]
 
-steps:
-- task: CmdLine@2
-  displayName: Build Android
-  condition: and(succeeded(), eq(variables.buildAndroid, 'true'))
-  inputs:
-    script: |
-      bundle exec fastlane android build version_code:$(Build.BuildId)
+${{ if contains(variables['Agent.JobName'], 'Android') }}:
+  - steps:
+    - task: CmdLine@2
+      displayName: Build Android
+      inputs:
+        script: |
+          bundle exec fastlane android build version_code:$(Build.BuildId)
 
+    - task: CopyFiles@2
+      displayName: Save compiled binary
+      inputs:
+        contents: android/**/*.apk
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        CleanTargetFolder: true
+        OverWrite: true
