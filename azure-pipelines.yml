@@ -24,7 +24,7 @@ variables:
     value: sandbox
 - name: template
   ${{ if contains(variables['Agent.JobName'], 'Android') }}:
-    value: production
+    value: rond
 
 pool:
   vmImage: $(imageName)
