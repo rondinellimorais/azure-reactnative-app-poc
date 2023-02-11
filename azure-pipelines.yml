@@ -27,8 +27,9 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo ${{ variables['Build.SourceBranch'] }}
-  displayName: ${{variables['Build.SourceBranch']}}
+- script: echo ${{ variables['System.JobName'] }}
+  displayName: ${{variables['System.JobName']}}
+
 - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
   - template: android.yml
     parameters:
