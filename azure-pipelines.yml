@@ -8,7 +8,8 @@ trigger:
 - dev # disposable/production
 
 variables:
-templatePath: ios.yml
+- name: templatePath
+  value: ios.yml
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
     value: production
