@@ -12,12 +12,12 @@ steps:
   condition: and(succeeded(), contains(variables['Agent.JobName'], 'iOS'))
   displayName: Android
 
-- task: CmdLine@2
-  displayName: Build Android
-  condition: succeeded()
-  inputs:
-    script: |
-      bundle exec fastlane android build version_code:$(Build.BuildId)
+# - task: CmdLine@2
+#   displayName: Build Android
+#   condition: succeeded()
+#   inputs:
+#     script: |
+#       bundle exec fastlane android build version_code:$(Build.BuildId)
 
 # - task: CopyFiles@2
 #   displayName: Save compiled binary

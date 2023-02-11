@@ -27,13 +27,17 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- template: android.yml
+- template: ${{ variables.environment }}
   parameters:
     environment: ${{ variables.environment }}
 
-- template: ios.yml
-  parameters:
-    environment: ${{ variables.environment }}
+# - template: android.yml
+#   parameters:
+#     environment: ${{ variables.environment }}
+
+# - template: ios.yml
+#   parameters:
+#     environment: ${{ variables.environment }}
 
 # - ${{if eq(variables['test'], 'android') }}:
 #   - template: android.yml
