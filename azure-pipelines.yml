@@ -31,12 +31,17 @@ steps:
   displayName: test => ${{ platformName }}
 
 - ${{ if eq(platformName, 'android') }}:
-  - template: android.yml
+  - template: android1.yml
     parameters:
       environment: ${{ variables.environment }}
 
 - ${{ if eq($(platformName), 'android') }}:
-  - template: android.yml
+  - template: android2.yml
+    parameters:
+      environment: ${{ variables.environment }}
+
+- ${{ if eq(variables['platformName'], 'android') }}:
+  - template: android3.yml
     parameters:
       environment: ${{ variables.environment }}
 
