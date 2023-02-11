@@ -28,17 +28,19 @@ pool:
 
 steps:
 - script: echo ${{ variables.platformName }}
-  displayName: test => $(platformName)
+  displayName: test => ${{ platformName }}
 
-# - script: none
-#   displayName: Environment name (${{ variables.environment }})
+- ${{ if eq(platformName, 'android') }}:
+  - template: android.yml
+    parameters:
+      environment: ${{ variables.environment }}
 
-# - ${{ if eq(variables['platformName'], 'android') }}:
-#   - template: android.yml
-#     parameters:
-#       environment: ${{ variables.environment }}
+- ${{ if eq($(platformName), 'android') }}:
+  - template: android.yml
+    parameters:
+      environment: ${{ variables.environment }}
 
-# - ${{ if eq(variables['platformName'], 'ios') }}:
+# - ${{ if eq($(platformName), 'ios') }}:
 #   - template: ios.yml
 #     parameters:
 #       environment: ${{ variables.environment }}
