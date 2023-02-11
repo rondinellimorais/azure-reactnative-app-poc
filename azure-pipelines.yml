@@ -29,8 +29,8 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo none
-  displayName: ${{ variables.test }}
+- script: echo ${{ variables.test }}
+  displayName: test => ${{ variables.test }}
 
 # - script: none
 #   displayName: Environment name (${{ variables.environment }})
