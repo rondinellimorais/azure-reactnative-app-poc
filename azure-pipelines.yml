@@ -22,22 +22,15 @@ variables:
     value: production
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
-- name: test
-  value: $(platformName)
 
 pool:
   vmImage: $(imageName)
 
 steps:
-- task: CmdLine@2
-  displayName: Create pipeline yml base platform
-  inputs:
-    script: |
-      cat ${{ variables.platformName }}.yml > pipeline.yml
-
-- template: pipeline.yml
-  parameters:
-    environment: ${{ variables.environment }}
+- $( if eq(platformName, 'ios') ):
+  - template: ios.yml
+    parameters:
+      environment: ${{ variables.environment }}
 
 # - ${{ if eq($(platformName), 'ios') }}:
 #   - template: ios.yml
