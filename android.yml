@@ -7,9 +7,20 @@ parameters:
 - name: environment
   type: string
 
-steps:
-- script: echo "Estou no android (${{ parameters.environment }})"
-  displayName: Android
+
+stages:
+- stage: Build
+  jobs:
+    - job: Build
+      pool:
+        vmImage: ubuntu-latest
+      steps:
+      - script: echo "deu"
+        displayName: 'Install dependencies'
+
+# steps:
+# - script: echo "Estou no android (${{ parameters.environment }})"
+#   displayName: Android
 # - task: CmdLine@2
 #   displayName: Build Android
 #   condition: succeeded()

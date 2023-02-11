@@ -23,22 +23,17 @@ variables:
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
 
-parameters:
-- name: myString
-  type: string
-  default: $(platformName)
-
 pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo $(System.JobName)
-  displayName: var => $(System.JobName)
+- template: android.yml
+  parameters:
+    environment: ${{ variables.environment }}
 
-- ${{ if eq(parameters.myString, 'android') }}:
-  - template: android.yml
-    parameters:
-      environment: ${{ variables.environment }}
+# - template: ios.yml
+#   parameters:
+#     environment: ${{ variables.environment }}
 
 # - ${{if eq(variables['test'], 'android') }}:
 #   - template: android.yml
