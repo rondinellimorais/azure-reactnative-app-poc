@@ -7,10 +7,6 @@ parameters:
 - name: environment
   type: string
 
-# variables:
-# - name: buildAndroid
-#   value: $[contains(variables['Agent.JobName'], 'Android')]
-
 steps:
 - ${{ if contains(variables['Agent.JobName'], 'Android') }}:
   - task: CmdLine@2
@@ -18,7 +14,7 @@ steps:
     condition: succeeded()
     inputs:
       script: |
-        bundle exec fastlane android build version_code:$(Build.BuildId)
+        bundle exec fastlane android build env:$(parameters.environment) version_code:$(Build.BuildId)
 
   - task: CopyFiles@2
     displayName: Save compiled binary
