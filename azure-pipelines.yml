@@ -28,7 +28,7 @@ pool:
 
 steps:
 - script: echo ${{Agent.JobName}}
-- ${{ if contains(variables['Agent.JobName'], 'Android') }}:
+- $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]:
   - template: android.yml
     parameters:
       environment: ${{ variables.environment }}
