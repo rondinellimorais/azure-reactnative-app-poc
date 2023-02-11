@@ -31,9 +31,9 @@ steps:
   parameters:
     environment: ${{ variables.environment }}
 
-# - template: ios.yml
-#   parameters:
-#     environment: ${{ variables.environment }}
+- template: ios.yml
+  parameters:
+    environment: ${{ variables.environment }}
 
 # - ${{if eq(variables['test'], 'android') }}:
 #   - template: android.yml
