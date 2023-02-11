@@ -27,7 +27,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- ${{if eq(platformName, 'ios') }}:
+- ${{if eq(variables.platformName, 'ios') }}:
   - template: ios.yml
     parameters:
       environment: ${{ variables.environment }}
