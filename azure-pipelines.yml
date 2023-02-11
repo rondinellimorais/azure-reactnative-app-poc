@@ -19,9 +19,9 @@ strategy:
     Android:
       imageName: 'ubuntu-latest'
       platformName: android
-    iOS:
-      imageName: 'macOS-latest'
-      platformName: ios
+    # iOS:
+    #   imageName: 'macOS-latest'
+    #   platformName: ios
 
 pool:
   vmImage: $(imageName)
@@ -30,8 +30,13 @@ steps:
 - script: echo My favorite vegetable is ${{ variables.environment }}.
   displayName: Environment name (${{ variables.environment }})
 
-- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+- ${{ if eq(variables['platformName'], 'android') }}:
   - template: android.yml
+    parameters:
+      environment: ${{ variables.environment }}
+
+- ${{ if eq(variables['platformName'], 'ios') }}:
+  - template: ios.yml
     parameters:
       environment: ${{ variables.environment }}
 
