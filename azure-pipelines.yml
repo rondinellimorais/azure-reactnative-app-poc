@@ -31,7 +31,7 @@ steps:
   displayName: test => $(platformName)
 
 - ${{ if eq(variables['platformName'], 'android') }}:
-  - template: android3.yml
+  - template: $(platformName).yml
     parameters:
       environment: ${{ variables.environment }}
 
