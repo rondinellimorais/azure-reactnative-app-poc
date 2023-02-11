@@ -28,7 +28,7 @@ pool:
 
 steps:
 - script: echo ${{ variables.platformName }}
-  displayName: test => ${{ variables.platformName }}
+  displayName: test => $(platformName)
 
 # - script: none
 #   displayName: Environment name (${{ variables.environment }})
