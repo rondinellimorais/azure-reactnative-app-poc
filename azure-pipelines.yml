@@ -18,7 +18,7 @@ strategy:
 
 variables:
 - name: test
-  value: android
+  value: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
     value: production
@@ -29,10 +29,15 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- ${{if eq(variables['test'], 'android') }}:
+- ${{if eq(variables['test'], 'true') }}:
   - template: android.yml
     parameters:
       environment: ${{ variables.environment }}
+
+# - ${{if eq(variables['test'], 'android') }}:
+#   - template: android.yml
+#     parameters:
+#       environment: ${{ variables.environment }}
 
 # - ${{ if eq($(platformName), 'ios') }}:
 #   - template: ios.yml

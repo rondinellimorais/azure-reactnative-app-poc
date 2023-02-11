@@ -5,3 +5,4 @@
 
 steps:
 - script: echo "Estou no iOS (${{ variables.environment }})"
+  displayName: iOS
