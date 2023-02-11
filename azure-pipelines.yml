@@ -27,7 +27,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- ${{ if contains(Agent['JobName'], 'Android') }}:
+- ${{ if contains(variables['Agent.JobName'], 'Android') }}:
   - template: android.yml
     parameters:
       environment: ${{ variables.environment }}
