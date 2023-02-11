@@ -27,6 +27,24 @@ pool:
   vmImage: $(imageName)
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSource: 'fromFile'
+    versionFilePath: .nvmrc
+  displayName: 'Install Node.js'
+
+- task: CmdLine@2
+  displayName: yarn/npm install
+  inputs:
+    script: yarn
+
+- task: CmdLine@2
+  displayName: Install fastlane using Gemfile
+  inputs:
+    script: |
+      sudo gem install bundler
+      sudo bundle install
+
 - template: android.yml
   parameters:
     environment: ${{ variables.environment }}
@@ -35,42 +53,11 @@ steps:
   parameters:
     environment: ${{ variables.environment }}
 
-# - task: NodeTool@0
-#   inputs:
-#     versionSource: 'fromFile'
-#     versionFilePath: .nvmrc
-#   displayName: 'Install Node.js'
-
-# - task: CmdLine@2
-#   displayName: yarn/npm install
-#   inputs:
-#     script: yarn
-
-# - task: CmdLine@2
-#   displayName: Install fastlane using Gemfile
-#   inputs:
-#     script: |
-#       sudo gem install bundler
-#       sudo bundle install
-
-# # Android tasks
-# # =======================
-# - task: CmdLine@2
-#   displayName: Build Android
-#   condition: and(succeeded(), eq(variables['platformName'], 'android'))
-#   inputs:
-#     script: |
-#       bundle exec fastlane android build version_code:$(Build.BuildId)
-
-# - task: CopyFiles@2
-#   displayName: Save compiled binary
-#   inputs:
-#     contents: android/**/*.apk
-#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-#     CleanTargetFolder: true
-#     OverWrite: true
-
-# - publish: $(Build.ArtifactStagingDirectory)
-#   artifact: $(Build.BuildId)
-#   displayName: Publish compiled binary
+- task: CopyFiles@2
+  displayName: Save compiled binary
+  inputs:
+    contents: android/**/*.apk
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
   
