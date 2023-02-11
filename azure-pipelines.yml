@@ -28,10 +28,9 @@ pool:
 
 steps:
 - script: echo My favorite vegetable is ${{ variables.environment }}.
+  displayName: Environment name (${{ variables.environment }})
 - ${{ if eq(variables['platformName'], 'android') }}:
   - template: android.yml
-- ${{ if eq(variables['platformName'], 'ios') }}:
-  - template: ios.yml
 
 # steps:
 # - script: echo My favorite vegetable is ${{ variables.environment }}.

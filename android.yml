@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 steps:
-- script: echo "Estou no android"
+- script: echo "Estou no android (${{ variables.environment }})"
 # - task: CmdLine@2
 #   displayName: Build Android
 #   condition: succeeded()

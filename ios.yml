@@ -4,4 +4,4 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 steps:
-- script: echo "Estou no iOS"
+- script: echo "Estou no iOS (${{ variables.environment }})"
