@@ -7,13 +7,6 @@ trigger:
 - main # disposable/sandbox
 - dev # disposable/production
 
-variables:
-- name: environment
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
-    value: production
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
-    value: sandbox
-
 strategy:
   matrix:
     Android:
@@ -23,19 +16,26 @@ strategy:
     #   imageName: 'macOS-latest'
     #   platformName: ios
 
+variables:
+- name: test
+  value: $(platformName)
+- name: environment
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+    value: production
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
+    value: sandbox
+
 pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo ${{ variables.platformName }}
+- script: echo ${{ variables.test }}
   displayName: test => $(platformName)
 
-- template: $(platformName).yml
-
-- ${{ if eq(variables['platformName'], 'android') }}:
-  - template: $(platformName).yml
-    parameters:
-      environment: ${{ variables.environment }}
+# - ${{ if eq(variables['platformName'], 'android') }}:
+#   - template: android3.yml
+#     parameters:
+#       environment: ${{ variables.environment }}
 
 # - ${{ if eq($(platformName), 'ios') }}:
 #   - template: ios.yml
