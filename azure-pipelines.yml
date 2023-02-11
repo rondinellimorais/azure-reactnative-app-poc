@@ -17,22 +17,25 @@ strategy:
     #   platformName: ios
 
 variables:
-- name: test
-  value: $(platformName)
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
     value: production
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
+- name: test
+  value: $(platformName)
 
 pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo ${{ variables.test }}
-  displayName: test => ${{ variables.test }}
+- task: CmdLine@2
+  displayName: Create pipeline yml base platform
+  inputs:
+    script: |
+      cat ${{ variables.platformName }}.yml > pipeline.yml
 
-- template: android.yml
+- template: pipeline.yml
   parameters:
     environment: ${{ variables.environment }}
 
