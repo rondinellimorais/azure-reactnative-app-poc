@@ -8,8 +8,6 @@ trigger:
 - dev # disposable/production
 
 variables:
-- name: templatePath
-  value: ios.yml
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
     value: production
@@ -30,7 +28,10 @@ pool:
 
 steps:
 - script: echo My favorite vegetable is ${{ variables.environment }}.
-- template: ${{ variables.templatePath }}
+- ${{ if eq(variables['platformName'], 'android') }}:
+  - template: android.yml
+- ${{ if eq(variables['platformName'], 'ios') }}:
+  - template: ios.yml
 
 # steps:
 # - script: echo My favorite vegetable is ${{ variables.environment }}.
