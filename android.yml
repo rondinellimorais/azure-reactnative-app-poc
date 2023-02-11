@@ -8,7 +8,7 @@ parameters:
   type: string
 
 steps:
-- ${{ if contains(variables['Agent.JobName'], 'Android') }}:
+- ${{ if eq(parameters['environment'], 'sandbox') }}:
   - task: CmdLine@2
     displayName: Build Android
     condition: succeeded()
