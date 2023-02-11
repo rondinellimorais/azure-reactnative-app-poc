@@ -4,7 +4,8 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+- main # disposable/sandbox
+- dev # disposable/production
 
 strategy:
   matrix:
@@ -55,7 +56,7 @@ steps:
     OverWrite: true
 
 - publish: $(Build.ArtifactStagingDirectory)
-  artifact: build_$(Build.BuildId)
+  artifact: $(Build.BuildId)
   displayName: Publish compiled binary
   
 # Android tasks
