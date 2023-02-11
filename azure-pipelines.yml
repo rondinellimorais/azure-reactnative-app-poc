@@ -30,7 +30,7 @@ steps:
 - script: echo $(System.JobName)
   displayName: $(System.JobName)
 
-- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+- ${{ if eq(variables['System.JobName'], 'Android') }}:
   - template: android.yml
     parameters:
       environment: ${{ variables.environment }}
