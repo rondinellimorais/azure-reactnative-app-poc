@@ -27,8 +27,8 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo My favorite vegetable is ${{ variables.environment }}.
-- template: ${{ variables['platformName'] }}.yml
+- script: echo My favorite vegetable is ${{ variables.environment }} - ${{ variables.platformName }}.
+- template: ${{ variables.platformName }}.yml
 
 # steps:
 # - script: echo My favorite vegetable is ${{ variables.environment }}.
