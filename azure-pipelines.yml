@@ -12,6 +12,7 @@ strategy:
     Android:
       imageName: 'ubuntu-latest'
       platformName: android
+      environmentName: if(eq(variables['Build.SourceBranch'], 'refs/heads/main'), production, sandbox)
     # iOS:
     #   imageName: 'macOS-latest'
     #   platformName: ios
@@ -20,6 +21,9 @@ pool:
   vmImage: $(imageName)
 
 steps:
+- script: |
+    echo $(environmentName)
+
 - task: NodeTool@0
   inputs:
     versionSource: 'fromFile'
