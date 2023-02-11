@@ -27,7 +27,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- ${{ if eq(variables['Agent.JobName'], 'Job Android') }}:
+- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
   - template: android.yml
     parameters:
        value: true
