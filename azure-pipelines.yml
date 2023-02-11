@@ -32,6 +32,10 @@ steps:
 - script: echo ${{ variables.templatePath }}
   displayName: test => ${{ variables.templatePath }}
 
+- template: ${{ variables.templatePath }}
+  parameters:
+    environment: ${{ variables.environment }}
+
 # - ${{ if eq(variables['platformName'], 'android') }}:
 #   - template: android3.yml
 #     parameters:
