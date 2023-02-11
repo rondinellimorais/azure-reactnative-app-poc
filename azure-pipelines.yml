@@ -17,8 +17,8 @@ strategy:
     #   platformName: ios
 
 variables:
-- name: test
-  value: $(platformName)
+- name: templatePath
+  value: $(platformName).yml
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
     value: production
@@ -29,8 +29,8 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo ${{ variables.test }}
-  displayName: test => $(platformName)
+- script: echo ${{ variables.templatePath }}
+  displayName: test => ${{ variables.templatePath }}
 
 # - ${{ if eq(variables['platformName'], 'android') }}:
 #   - template: android3.yml
