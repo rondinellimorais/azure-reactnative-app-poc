@@ -8,6 +8,6 @@ parameters:
   type: string
 
 steps:
-- ${{ if contains(variables['platformName'], 'ios') }}:
+- ${{ if contains(variables['Agent.JobName'], 'iOS') }}:
   - script: echo "Estou no iOS (${{ variables.environment }})"
     displayName: Build iOS
