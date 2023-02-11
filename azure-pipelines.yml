@@ -7,12 +7,18 @@ trigger:
 - main # disposable/sandbox
 - dev # disposable/production
 
+variables:
+- name: environmentName
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+    value: production
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
+    value: sandbox
+
 strategy:
   matrix:
     Android:
       imageName: 'ubuntu-latest'
       platformName: android
-      environmentName: if(eq(variables['Build.SourceBranch'], 'refs/heads/main'), production, sandbox)
     # iOS:
     #   imageName: 'macOS-latest'
     #   platformName: ios
@@ -21,8 +27,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: |
-    echo $(environmentName)
+- script: echo My favorite vegetable is ${{ variables.environmentName }}.
 
 - task: NodeTool@0
   inputs:
