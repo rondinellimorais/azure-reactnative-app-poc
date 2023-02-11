@@ -29,7 +29,11 @@ pool:
 steps:
 - script: echo My favorite vegetable is ${{ variables.environment }}.
   displayName: Environment name (${{ variables.environment }})
-- template: android.yml
+
+- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+  - template: android.yml
+    parameters:
+      environment: ${{ variables.environment }}
 
 # steps:
 # - script: echo My favorite vegetable is ${{ variables.environment }}.
