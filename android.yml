@@ -7,7 +7,7 @@ steps:
 - script: echo "Estou no android"
 # - task: CmdLine@2
 #   displayName: Build Android
-#   condition: and(succeeded(), eq(variables['platformName'], 'android'))
+#   condition: succeeded()
 #   inputs:
 #     script: |
 #       bundle exec fastlane android build version_code:$(Build.BuildId)

@@ -28,7 +28,8 @@ pool:
 
 steps:
 - script: echo My favorite vegetable is ${{ variables.environment }}.
-- template: android.yml
+- template: $(platformName).yml
+
 # steps:
 # - script: echo My favorite vegetable is ${{ variables.environment }}.
 
