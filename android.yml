@@ -8,19 +8,18 @@ parameters:
   type: string
 
 steps:
-- ${{ if eq(parameters['environment'], 'sandbox') }}:
-  - task: CmdLine@2
-    displayName: Build Android
-    condition: succeeded()
-    inputs:
-      script: |
-        bundle exec fastlane android build env:$(parameters.environment) version_code:$(Build.BuildId)
+- task: CmdLine@2
+  displayName: Build Android
+  condition: succeeded()
+  inputs:
+    script: |
+      bundle exec fastlane android build env:$(parameters.environment) version_code:$(Build.BuildId)
 
-  - task: CopyFiles@2
-    displayName: Save compiled binary
-    condition: succeeded()
-    inputs:
-      contents: android/**/*.apk
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
-      CleanTargetFolder: true
-      OverWrite: true
+- task: CopyFiles@2
+  displayName: Save compiled binary
+  condition: succeeded()
+  inputs:
+    contents: android/**/*.apk
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
