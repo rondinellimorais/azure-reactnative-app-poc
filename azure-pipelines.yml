@@ -29,13 +29,12 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo ${{ variables.templatePath }}
-  displayName: test => ${{ variables.templatePath }}
+- script: echo ${{ variables.test }}
+  displayName: test => ${{ variables.test }}
 
-- ${{ if eq(variables['test'], 'android') }}:
-  - template: android3.yml
-    parameters:
-      environment: ${{ variables.environment }}
+- template: android.yml
+  parameters:
+    environment: ${{ variables.environment }}
 
 # - ${{ if eq($(platformName), 'ios') }}:
 #   - template: ios.yml
