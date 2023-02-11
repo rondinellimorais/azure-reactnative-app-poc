@@ -7,13 +7,6 @@ trigger:
 - main # disposable/sandbox
 - dev # disposable/production
 
-variables:
-- name: environment
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
-    value: production
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
-    value: sandbox
-
 strategy:
   matrix:
     Android:
@@ -23,25 +16,34 @@ strategy:
     #   imageName: 'macOS-latest'
     #   platformName: ios
 
+variables:
+- name: test
+  value: ${{ variables.platformName }}
+- name: environment
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+    value: production
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
+    value: sandbox
+
 pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo My favorite vegetable is ${{ variables.environment }}.
-  displayName: Environment name (${{ variables.environment }})
+- script: echo none
+  displayName: ${{ variables.test }}
 
-- ${{ if eq(variables['platformName'], 'android') }}:
-  - template: android.yml
-    parameters:
-      environment: ${{ variables.environment }}
+# - script: none
+#   displayName: Environment name (${{ variables.environment }})
 
-- ${{ if eq(variables['platformName'], 'ios') }}:
-  - template: ios.yml
-    parameters:
-      environment: ${{ variables.environment }}
+# - ${{ if eq(variables['platformName'], 'android') }}:
+#   - template: android.yml
+#     parameters:
+#       environment: ${{ variables.environment }}
 
-# steps:
-# - script: echo My favorite vegetable is ${{ variables.environment }}.
+# - ${{ if eq(variables['platformName'], 'ios') }}:
+#   - template: ios.yml
+#     parameters:
+#       environment: ${{ variables.environment }}
 
 # - task: NodeTool@0
 #   inputs:
