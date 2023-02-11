@@ -6,6 +6,12 @@
 trigger:
   - main
 
+strategy:
+  matrix:
+    Android:
+      imageName: 'ubuntu-latest'
+      platformName: android
+
 stages:
   - stage: Android
     jobs:
