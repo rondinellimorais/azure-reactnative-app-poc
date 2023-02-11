@@ -23,7 +23,7 @@ variables:
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
 - name: template
-  ${{ if contains(variables['System.Name'], 'android') }}:
+  ${{ if contains(variables['System.JobName'], 'android') }}:
     value: rond
 
 pool:
