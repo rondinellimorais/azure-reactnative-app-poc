@@ -8,12 +8,12 @@ trigger:
 - dev # disposable/production
 
 variables:
+templatePath: ios.yml
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
     value: production
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
-- templatePath: ios.yml
 
 strategy:
   matrix:
