@@ -17,6 +17,8 @@ strategy:
     #   platformName: ios
 
 variables:
+- name: test
+  value: android
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
     value: production
@@ -27,8 +29,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: echo ${{Agent.JobName}}
-- $[if eq(variables['Build.SourceBranch'], 'refs/heads/main')]:
+- ${{if eq(variables['test'], 'android') }}:
   - template: android.yml
     parameters:
       environment: ${{ variables.environment }}
