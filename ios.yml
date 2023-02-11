@@ -6,3 +6,4 @@
 steps:
 - script: echo "Estou no iOS (${{ variables.environment }})"
   displayName: iOS
+  condition: and(succeeded(), contains(variables['Agent.JobName'], 'iOS'))

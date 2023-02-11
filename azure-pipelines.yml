@@ -12,9 +12,9 @@ strategy:
     Android:
       imageName: 'ubuntu-latest'
       platformName: android
-    # iOS:
-    #   imageName: 'macOS-latest'
-    #   platformName: ios
+    iOS:
+      imageName: 'macOS-latest'
+      platformName: ios
 
 variables:
 - name: environment
@@ -22,34 +22,18 @@ variables:
     value: production
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
-- name: template
-  value: $[variables['System.JobName']]
 
 pool:
   vmImage: $(imageName)
 
 steps:
-- template: ${{ variables.template }}.yml
+- template: android.yml
   parameters:
     environment: ${{ variables.environment }}
 
-# - template: android.yml
-#   parameters:
-#     environment: ${{ variables.environment }}
-
-# - template: ios.yml
-#   parameters:
-#     environment: ${{ variables.environment }}
-
-# - ${{if eq(variables['test'], 'android') }}:
-#   - template: android.yml
-#     parameters:
-#       environment: ${{ variables.environment }}
-
-# - ${{ if eq($(platformName), 'ios') }}:
-#   - template: ios.yml
-#     parameters:
-#       environment: ${{ variables.environment }}
+- template: ios.yml
+  parameters:
+    environment: ${{ variables.environment }}
 
 # - task: NodeTool@0
 #   inputs:

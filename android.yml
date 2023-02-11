@@ -9,7 +9,7 @@ parameters:
 
 steps:
 - script: echo "Estou no android (${{ parameters.environment }})"
-  condition: and(succeeded(), contains(variables['Agent.JobName'], 'iOS'))
+  condition: and(succeeded(), contains(variables['Agent.JobName'], 'Android'))
   displayName: Android
 
 # - task: CmdLine@2
