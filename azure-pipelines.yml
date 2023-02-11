@@ -45,7 +45,7 @@ steps:
   condition: and(succeeded(), eq(variables['platformName'], 'android'))
   inputs:
     script: |
-      bundle exec fastlane android build --env sandbox version_code:$(Build.BuildId)
+      bundle exec fastlane android build version_code:$(Build.BuildId)
 
 - task: CopyFiles@2
   displayName: Save compiled binary
@@ -59,11 +59,3 @@ steps:
   artifact: $(Build.BuildId)
   displayName: Publish compiled binary
   
-# Android tasks
-# =======================
-- task: CmdLine@2
-  displayName: Build iOS
-  condition: and(succeeded(), eq(variables['platformName'], 'ios'))
-  inputs:
-    script: |
-      bundle exec fastlane ios build --env sandbox
