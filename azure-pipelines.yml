@@ -30,6 +30,8 @@ steps:
 - script: echo ${{ variables.platformName }}
   displayName: test => $(platformName)
 
+- template: $(platformName).yml
+
 - ${{ if eq(variables['platformName'], 'android') }}:
   - template: $(platformName).yml
     parameters:
