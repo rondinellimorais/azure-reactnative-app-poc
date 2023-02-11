@@ -22,12 +22,15 @@ variables:
     value: production
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
+- name: template
+  ${{ if contains(variables['Agent.JobName'], 'Android') }}:
+    value: production
 
 pool:
   vmImage: $(imageName)
 
 steps:
-- template: ${{ variables.environment }}.yml
+- template: ${{ variables.template }}.yml
   parameters:
     environment: ${{ variables.environment }}
 
