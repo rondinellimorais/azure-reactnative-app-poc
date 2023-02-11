@@ -13,6 +13,8 @@ variables:
     value: production
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
+- name: templatePath
+  value: android.yml
 
 strategy:
   matrix:
@@ -28,7 +30,7 @@ pool:
 
 steps:
 - script: echo My favorite vegetable is ${{ variables.environment }} - ${{ variables.platformName }}.
-- template: ${{ variables.platformName }}.yml
+- template: ${{ variables.templatePath }}
 
 # steps:
 # - script: echo My favorite vegetable is ${{ variables.environment }}.
