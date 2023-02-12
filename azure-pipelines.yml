@@ -7,14 +7,14 @@ trigger:
   - main
   - dev
 
-strategy:
-  matrix:
-    Android:
-      imageName: 'ubuntu-latest'
-      platformName: android
-    iOS:
-      imageName: 'macOS-latest'
-      platformName: ios
+# strategy:
+#   matrix:
+#     Android:
+#       imageName: 'ubuntu-latest'
+#       platformName: android
+#     iOS:
+#       imageName: 'macOS-latest'
+#       platformName: ios
 
 # se vamos ter um azure-pipelines-sandbox e um production
 # então podemos deixar fixo o valor dessa env
@@ -25,8 +25,8 @@ variables:
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
 
-pool:
-  vmImage: $(imageName)
+# pool:
+#   vmImage: $(imageName)
 
 jobs:
   - job: Build
