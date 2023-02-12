@@ -11,10 +11,10 @@ strategy:
   matrix:
     Android:
       imageName: 'ubuntu-latest'
-      platform: Android
-    # iOS:
-    #   imageName: 'macOS-latest'
-    #   platform: iOS
+      platform: android
+    iOS:
+      imageName: 'macOS-latest'
+      platform: ios
 
 # TODO: se vamos ter um azure-pipelines-sandbox e um production
 # então podemos deixar fixo o valor dessa env
