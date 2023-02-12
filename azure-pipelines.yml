@@ -42,10 +42,13 @@ steps:
         sudo gem install bundler
         sudo bundle install
 
-  - template: .azure/build.yml
-    parameters:
-      environment: ${{ variables.environment }}
-      platform: $(platform)
+  - task: CmdLine@2
+    displayName: Build for $(platform)
+    condition: succeeded()
+    inputs:
+      script: |
+        bundle exec fastlane $(platform) build \
+          env:${{ variables.environment }} version_code:$(Build.BuildId)
 
   - task: CopyFiles@2
     displayName: Save compiled binary
