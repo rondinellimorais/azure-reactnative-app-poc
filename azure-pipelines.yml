@@ -29,7 +29,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- template: android.yml # TODO: carregar um arquivo com nome dinâmico
+- template: .azure/android.yml # TODO: carregar um arquivo com nome dinâmico
   parameters:
     environment: ${{ variables.environment }}
     platformName: $(platformName)
