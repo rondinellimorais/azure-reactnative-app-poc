@@ -36,9 +36,16 @@ jobs:
         imageName: 'macOS-latest'
         platformName: ios
   steps:
+  # - template: .azure/build.yml
+  #   parameters:
+  #     name: $(platformName)
+  #     environment: ${{ variables.environment }}
+  #     pool:
+  #       vmImage: $(imageName)
+
   - template: .azure/build.yml
     parameters:
-      name: $(platformName)
-      environment: ${{ variables.environment }}
+      name: ios
+      environment: sandbox
       pool:
-        vmImage: $(imageName)
+        vmImage: macOS-latest
