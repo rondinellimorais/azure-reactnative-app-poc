@@ -39,6 +39,6 @@ jobs:
         iOS:
           platformName: ios
     steps:
-      - template: .azure/${{Agent.JobName}}.yml # TODO: carregar um arquivo com nome dinâmico
+      - template: .azure/${{ System.JobName }}.yml # TODO: carregar um arquivo com nome dinâmico
         parameters:
           environment: ${{ variables.environment }}
