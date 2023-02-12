@@ -16,7 +16,7 @@ strategy:
       imageName: 'macOS-latest'
       platform: iOS
 
-# se vamos ter um azure-pipelines-sandbox e um production
+# TODO: se vamos ter um azure-pipelines-sandbox e um production
 # então podemos deixar fixo o valor dessa env
 variables:
 - name: environment
