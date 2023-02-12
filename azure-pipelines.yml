@@ -16,6 +16,8 @@ strategy:
       imageName: 'macOS-latest'
       platformName: ios
 
+# se vamos ter um azure-pipelines-sandbox e um production
+# então podemos deixar fixo o valor dessa env
 variables:
 - name: environment
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
@@ -27,30 +29,7 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSource: 'fromFile'
-    versionFilePath: .nvmrc
-  displayName: 'Install Node.js'
-
-- task: CmdLine@2
-  displayName: yarn/npm install
-  inputs:
-    script: yarn
-
-- task: CmdLine@2
-  displayName: Install fastlane using Gemfile
-  inputs:
-    script: |
-      sudo gem install bundler
-      sudo bundle install
-
-- template: android.yml
+- template: android.yml # TODO: carregar um arquivo com nome dinâmico
   parameters:
     environment: ${{ variables.environment }}
-
-- template: ios.yml
-  parameters:
-    environment: ${{ variables.environment }}
-
-  
+    platformName: $(platformName)
