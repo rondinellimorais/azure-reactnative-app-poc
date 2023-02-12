@@ -12,9 +12,9 @@ strategy:
     Android:
       imageName: 'ubuntu-latest'
       platform: Android
-    iOS:
-      imageName: 'macOS-latest'
-      platform: iOS
+    # iOS:
+    #   imageName: 'macOS-latest'
+    #   platform: iOS
 
 # TODO: se vamos ter um azure-pipelines-sandbox e um production
 # então podemos deixar fixo o valor dessa env
