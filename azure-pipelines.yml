@@ -27,6 +27,8 @@ variables:
 
 jobs:
 - job: Build
+  pool:
+    vmImage: macOS-latest
   strategy:
     matrix:
       Android:
