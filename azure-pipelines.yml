@@ -46,8 +46,3 @@ jobs:
   #       vmImage: $(imageName)
 
   - template: .azure/build.yml
-    parameters:
-      name: ios
-      environment: sandbox
-      pool:
-        vmImage: macOS-latest
