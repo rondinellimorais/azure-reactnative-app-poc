@@ -5,37 +5,32 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.001445">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.000392">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000332">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000225">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to android package_json_version lane" time="0.000265">
+      <testcase classname="fastlane.lanes" name="2: Switch to android package_json_version lane" time="0.000679">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: android_set_version_name" time="0.005941">
+      <testcase classname="fastlane.lanes" name="3: android_set_version_name" time="0.004256">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: android_set_version_code" time="0.003522">
+      <testcase classname="fastlane.lanes" name="4: android_set_version_code" time="0.003345">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: Switch to android build_sandbox lane" time="0.000263">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: app:assembleRelease" time="100.342934">
+      <testcase classname="fastlane.lanes" name="5: Switch to android build_production lane" time="0.000265">
         
       </testcase>
     

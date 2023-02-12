@@ -16,14 +16,9 @@ strategy:
       imageName: 'macOS-latest'
       platform: ios
 
-# TODO: se vamos ter um azure-pipelines-sandbox e um production
-# então podemos deixar fixo o valor dessa env
 variables:
 - name: environment
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
-    value: production
-  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
-    value: sandbox
+  value: sandbox
 
 pool:
   vmImage: $(imageName)
