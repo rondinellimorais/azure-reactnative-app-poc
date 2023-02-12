@@ -11,10 +11,10 @@ strategy:
   matrix:
     Android:
       imageName: 'ubuntu-latest'
-      platformName: android
+      platform: android
     iOS:
       imageName: 'macOS-latest'
-      platformName: ios
+      platform: ios
 
 # se vamos ter um azure-pipelines-sandbox e um production
 # então podemos deixar fixo o valor dessa env
@@ -32,4 +32,4 @@ steps:
   - template: .azure/build.yml
     parameters:
       environment: ${{ variables.environment }}
-      platformName: $(platformName)
+      platform: $(platform)
