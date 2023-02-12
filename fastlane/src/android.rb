@@ -1,10 +1,3 @@
-# -- para carregar as envs --
-# fastlane android build --env sandbox
-# fastlane android build --env production
-
-# -- enviando parametros --
-# fastlane android build --env sandbox version_code:444
-
 platform :android do
   # ======= PUBLIC
   lane :setup do | options |
@@ -23,9 +16,9 @@ platform :android do
       version_code: options[:version_code] || 600,
       gradle_file: "./android/app/build.gradle"
     )
-    if ENV["AIRFOX_ENVIRONMENT_NAME"] == "sandbox"
+    if options[:env] == "sandbox"
       build_sandbox()
-    elsif ENV["AIRFOX_ENVIRONMENT_NAME"] == "production"
+    elsif options[:env] == "production"
       build_production()
     else
       puts "[ERROR] fastlane [ios|android] build --env [sandbox|production]"

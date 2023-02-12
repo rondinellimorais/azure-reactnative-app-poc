@@ -1,6 +1,5 @@
 platform :ios do
-  desc("iOS Build")
-  lane :build do
+  lane :build do | options |
     puts "ios building"
   end
 end
