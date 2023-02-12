@@ -31,18 +31,14 @@ variables:
 jobs:
   - job: Build
     pool:
-      vmImage: ubuntu-latest
+      vmImage: 'macOS-latest'
     strategy:
       matrix:
-        Python35:
-          PYTHON_VERSION: '3.5'
-        Python36:
-          PYTHON_VERSION: '3.6'
-        Python37:
-          PYTHON_VERSION: '3.7'
-      maxParallel: 2
+        Android:
+          platformName: android
+        iOS:
+          platformName: ios
     steps:
-      - template: .azure/android.yml # TODO: carregar um arquivo com nome dinâmico
+      - template: .azure/$(platformName).yml # TODO: carregar um arquivo com nome dinâmico
         parameters:
           environment: ${{ variables.environment }}
-          platformName: $(platformName)
