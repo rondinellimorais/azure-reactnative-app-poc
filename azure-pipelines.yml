@@ -29,23 +29,23 @@ pool:
   vmImage: $(imageName)
 
 steps:
-  # - task: NodeTool@0
-  #   inputs:
-  #     versionSource: 'fromFile'
-  #     versionFilePath: .nvmrc
-  #   displayName: 'Install Node.js'
+  - task: NodeTool@0
+    inputs:
+      versionSource: 'fromFile'
+      versionFilePath: .nvmrc
+    displayName: 'Install Node.js'
 
-  # - task: CmdLine@2
-  #   displayName: yarn/npm install
-  #   inputs:
-  #     script: yarn
+  - task: CmdLine@2
+    displayName: yarn/npm install
+    inputs:
+      script: yarn
 
-  # - task: CmdLine@2
-  #   displayName: Install fastlane using Gemfile
-  #   inputs:
-  #     script: |
-  #       sudo gem install bundler
-  #       sudo bundle install
+  - task: CmdLine@2
+    displayName: Install fastlane using Gemfile
+    inputs:
+      script: |
+        sudo gem install bundler
+        sudo bundle install
 
   - template: .azure/build.yml
     parameters:
