@@ -25,20 +25,20 @@ variables:
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
     value: sandbox
 
-# pool:
-#   vmImage: $(imageName)
-
 jobs:
   - job: Build
-    pool:
-      vmImage: 'macOS-latest'
     strategy:
       matrix:
         Android:
+          imageName: 'ubuntu-latest'
           platformName: android
         iOS:
+          imageName: 'macOS-latest'
           platformName: ios
     steps:
-      - template: .azure/android.yml # TODO: carregar um arquivo com nome dinâmico
+      - template: .azure/build.yml
         parameters:
+          name: $(platformName)
           environment: ${{ variables.environment }}
+          pool:
+            vmImage: $(imageName)
