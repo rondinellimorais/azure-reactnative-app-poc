@@ -26,19 +26,19 @@ variables:
     value: sandbox
 
 jobs:
-  - job: Build
-    strategy:
-      matrix:
-        Android:
-          imageName: 'ubuntu-latest'
-          platformName: android
-        iOS:
-          imageName: 'macOS-latest'
-          platformName: ios
-    steps:
-      - template: .azure/build.yml
-        parameters:
-          name: $(platformName)
-          environment: ${{ variables.environment }}
-          pool:
-            vmImage: $(imageName)
+- job: Build
+  strategy:
+    matrix:
+      Android:
+        imageName: 'ubuntu-latest'
+        platformName: android
+      iOS:
+        imageName: 'macOS-latest'
+        platformName: ios
+  steps:
+  - template: .azure/build.yml
+    parameters:
+      name: $(platformName)
+      environment: ${{ variables.environment }}
+      pool:
+        vmImage: $(imageName)
